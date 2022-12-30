@@ -1,6 +1,7 @@
 # package directories
 node_modules
 jspm_packages
+.esbuild
 
 # Serverless directories
 .serverless
@@ -10,7 +11,7 @@ jspm_packages
 
 # Yarn
 yarn-error.log
-
+.yarn
 # Coverage
 coverage
 

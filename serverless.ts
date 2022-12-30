@@ -1,20 +1,19 @@
 /* eslint-disable no-template-curly-in-string */
 import type { AWS } from '@serverless/typescript';
 
-import { hello } from './src/functions';
+import { hello, get } from './src/functions';
 
 const serverlessConfiguration: AWS = {
   service: 'serverless-typescript',
-  frameworkVersion: '2',
+  frameworkVersion: '3',
   useDotenv: true,
   custom: {
-    webpack: {
-      webpackConfig: './webpack.config.js',
-      includeModules: true,
-      packager: 'yarn',
+    esbuild: {
+      bundle: true,
+      minify: false
     },
-    stage: '${opt:stage, self:provider.stage}',
-    stages: ['staging', 'production'],
+    stage: '${opt:stage, self:provider.stage, "dev"}',
+    stages: ['dev', 'staging', 'production'],
     prune: {
       automatic: true,
       number: 3,
@@ -49,23 +48,26 @@ const serverlessConfiguration: AWS = {
     },
   },
   plugins: [
-    'serverless-webpack',
+    'serverless-esbuild',
     'serverless-offline',
     'serverless-stage-manager',
     'serverless-prune-plugin',
     'serverless-plugin-aws-alerts',
-    'serverless-plugin-canary-deployments', // Remove this if you want to disable Canary Deployments
   ],
   provider: {
     name: 'aws',
-    runtime: 'nodejs14.x',
-    iamRoleStatements: [
-      {
-        Effect: 'Allow',
-        Action: ['codedeploy:*'],
-        Resource: '*',
+    runtime: 'nodejs18.x',
+    iam: {
+      role: {
+        statements: [
+          {
+            Effect: 'Allow',
+            Action: ['codedeploy:*'],
+            Resource: '*',
+          },
+        ]
       },
-    ],
+    },
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
@@ -83,9 +85,8 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
     },
-    lambdaHashingVersion: '20201221',
   },
-  functions: { hello },
+  functions: { hello, get },
 };
 
 module.exports = serverlessConfiguration;

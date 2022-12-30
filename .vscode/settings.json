@@ -1,0 +1,11 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.quickSuggestionsDelay": 0,
+    "terminal.integrated.cursorStyle": "line",
+    "testing.openTesting": "neverOpen",
+    "testing.autoRun.mode": "rerun",
+    "wallaby.codeLensFeature.runTest": true,
+    "wallaby.outputInspectorFeature.automaticDisplay": "Never",
+    "wallaby.outputInspectorFeature.automaticDisplayDebuggerOverride": "Never",
+    "wallaby.reportFailuresAsProblems": false
+}
