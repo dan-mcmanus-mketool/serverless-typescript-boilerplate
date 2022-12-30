@@ -5,8 +5,9 @@ import type {
 } from 'aws-lambda';
 import type { FromSchema, JSONSchema7 } from 'json-schema-to-ts';
 
-type ValidatedAPIGatewayProxyGetEvent<S extends JSONSchema7> = Omit<APIGatewayProxyEvent, 'queryStringParameters'> & {
-  queryStringParameters: FromSchema<S>
+type ValidatedAPIGatewayProxyGetEvent<S extends JSONSchema7> = Omit<APIGatewayProxyEvent, 'queryStringParameters' | 'body'> & {
+  queryStringParameters: FromSchema<S>,
+  body: string
 }
 
 type ValidatedAPIGatewayProxyEvent<S extends JSONSchema7> = Omit<APIGatewayProxyEvent, 'body'> & {

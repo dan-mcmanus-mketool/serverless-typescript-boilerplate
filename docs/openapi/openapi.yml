@@ -7,4 +7,18 @@ info:
 paths:
   /hello:
     $ref: './functions/hello.yml#/paths'
+  /users:
+    $ref: './functions/users.yml#/paths'
 
+components:
+  schemas:
+    User:
+      properties:
+        name:
+          type: string
+          example: John
+        age:
+          type: integer
+          format: int64
+          example: 198772
+      type: object

@@ -4,7 +4,7 @@
     "lib": [
       "ESNext"
     ],
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": true,
@@ -12,7 +12,7 @@
     "target": "ESNext",
     "outDir": "lib",
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
   },
   "include": [
     "src/**/*.ts"

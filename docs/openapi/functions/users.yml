@@ -1,0 +1,21 @@
+paths:
+  get:
+    summary: Users
+    description: Returns user name and age provided from query string
+    parameters:
+      - name: name
+        in: query
+        description: Users name
+        required: true
+      - name: age
+        in: query
+        required: true
+    responses:
+      '200':
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      '400':
+        description: Invalid status value

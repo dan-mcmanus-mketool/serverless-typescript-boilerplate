@@ -1,14 +1,12 @@
 export default {
   type: 'object',
   properties: {
-    quequeryStringParameters: {
-      type: 'object',
-      properties: {
-        name: { type: 'string' },
-        age: { type: 'number' }
-      },
-      required: ['name', 'age']
+    name: {
+      type: 'string'
+    },
+    age: {
+      type: 'number'
     }
   },
-  required: ['queryStringParameters'],
+  required: ['name', 'age'],
 } as const;

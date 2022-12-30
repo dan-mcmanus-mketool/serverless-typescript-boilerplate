@@ -5,14 +5,14 @@
   "main": "serverless.ts",
   "scripts": {
     "start": "serverless offline --httpPort=4000",
-    "deploy:dev": "serverless deploy --aws-profile dmcdev -s dev",
+    "deploy:dev": "serverless deploy --aws-profile sandbox -s dev",
     "deploy:staging": "serverless deploy --aws-profile personal --stage staging",
     "deploy:production": "serverless deploy --aws-profile personal --stage production",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch --coverage",
     "lint": "eslint '*/**/*.{js,ts}'",
     "prettier": "prettier --write '*/**/*.{js,ts}'",
-    "docs": "redoc-cli serve docs/openapi/openapi.yml",
+    "docs": "npx @redocly/cli preview-docs docs/openapi/openapi.yml",
     "docs:watch": "redoc-cli serve docs/openapi/openapi.yml --watch"
   },
   "dependencies": {
