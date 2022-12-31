@@ -6,14 +6,11 @@
   "scripts": {
     "start": "serverless offline --httpPort=4000",
     "deploy:dev": "serverless deploy --aws-profile sandbox -s dev",
-    "deploy:staging": "serverless deploy --aws-profile personal --stage staging",
-    "deploy:production": "serverless deploy --aws-profile personal --stage production",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch --coverage",
     "lint": "eslint '*/**/*.{js,ts}'",
     "prettier": "prettier --write '*/**/*.{js,ts}'",
-    "docs": "npx @redocly/cli preview-docs docs/openapi/openapi.yml",
-    "docs:watch": "redoc-cli serve docs/openapi/openapi.yml --watch"
+    "docs": "npx @redocly/cli preview-docs docs/openapi/openapi.yml"
   },
   "dependencies": {
     "@middy/core": "^4.0.9",
@@ -43,12 +40,10 @@
     "json-schema-to-ts": "^2.6.2",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.1",
-    "redoc-cli": "^0.13.20",
     "serverless": "^3.26.0",
     "serverless-esbuild": "^1.35.0",
     "serverless-offline": "^12.0.3",
     "serverless-plugin-aws-alerts": "^1.7.5",
-    "serverless-plugin-canary-deployments": "^0.8.0",
     "serverless-prune-plugin": "^2.0.1",
     "serverless-stage-manager": "^1.0.5",
     "ts-jest": "^29.0.3",

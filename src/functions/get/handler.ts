@@ -1,14 +1,15 @@
 import 'source-map-support/register';
 
-import { ValidatedEventAPIGatewayProxyGetEvent } from '@/libs/apiGateway';
+import { formatJSONResponse, ValidatedEventAPIGatewayProxyGetEvent } from '@/libs/apiGateway';
 import { middyfy } from '@/libs/lambda';
-
 import schema from './schema';
-import { formatJSONResponse } from '../../libs/apiGateway';
+
 const get: ValidatedEventAPIGatewayProxyGetEvent<typeof schema> = async (event) => {
   console.log(event);
+  const { queryStringParameters } = event;
   return formatJSONResponse({
-    params: {...event.queryStringParameters}
+    name: queryStringParameters.name,
+    age: queryStringParameters.age
   })
 };
 

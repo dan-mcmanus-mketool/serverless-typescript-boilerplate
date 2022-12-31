@@ -2,5 +2,5 @@
   "headers": {
     "Content-Type": "application/text"
   },
-  "queryStringParameters": {"age": 40, "name": "dan"}
+  "queryStringParameters": {"age": 40, "name": "John"}
 }
